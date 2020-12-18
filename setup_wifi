@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -eo pipefail
+
+__main() {
+  if [ -f './wpa_supplicant.conf' ]
+  then
+    echo 'wpa_supplicant.conf is already exists.' >&2
+    exit 1
+  fi
+
+  cat <<-'EOB' > ./wpa_supplicant.conf
+	country=JP
+	ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+	update_config=1
+	EOB
+}
+__main "$@"
+
+unset -f __main
+
+# vim:list:
