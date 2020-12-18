@@ -1,0 +1,19 @@
+#!/bin/bash
+
+set -eo pipefail
+
+__main() {
+  local slug=
+
+  slug='sasaplus1/setup-raspberry-pi'
+
+  if ! docker images --format '{{ .Repository }}' | grep "$slug" >/dev/null 2>&1
+  then
+    DOCKER_BUILDKIT=1 docker build -t "$slug" .
+  fi
+
+  docker run --rm "$slug" "$@" | grep -v '#psk'
+}
+__main "$@"
+
+unset -f __main
