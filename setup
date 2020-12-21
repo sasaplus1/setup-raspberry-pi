@@ -14,3 +14,7 @@ cat <<'EOB' | sudo tee /etc/systemd/timesyncd.conf >/dev/null
 NTP=ntp.nict.jp
 FallbackNTP=pool.ntp.org
 EOB
+if timedatectl list-timezones | grep 'Asia/Tokyo' >/dev/null 2>&1
+then
+  sudo timedatectl set-timezone Asia/Tokyo
+fi
