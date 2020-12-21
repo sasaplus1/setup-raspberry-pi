@@ -1,0 +1,21 @@
+name: test
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  test:
+    name: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          echo '!setup' >> .dockerignore
+          echo '!wpa_passphrase' >> .dockerignore
+          echo '!wpa_supplicant' >> .dockerignore
+      - run: >
+          docker run --rm -v "$PWD:/mnt" koalaman/shellcheck:stable
+          setup
+          wpa_passphrase
+          wpa_supplicant
