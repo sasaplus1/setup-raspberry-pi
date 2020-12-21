@@ -38,10 +38,10 @@ Install Raspberry Pi OS Lite to SD card, setup Wifi and enabling SSH:
 - [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md)
     - see `3. Enable SSH on a headless Raspberry Pi (add file to SD card on another machine)` section
 
-`setup_wifi` and `wpa_passphrase` are useful for create `wpa_supplicant.conf`:
+`wpa_supplicant` and `wpa_passphrase` are useful for create `wpa_supplicant.conf`:
 
 ```console
-$ ./setup_wifi
+$ ./wpa_supplicant
 $ ./wpa_passphrase SSID PASSPHRASE >> ./wpa_supplicant.conf
 $ cp ./wpa_supplicant.conf /Volumes/boot
 ```
