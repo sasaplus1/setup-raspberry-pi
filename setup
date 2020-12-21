@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# apt
+sudo cp /etc/apt/sources.list{,.bak}
+# NOTE: `sudo cat <<-'EOB' > /etc/apt/sources.list` throws permission denied
+sudo tee /etc/apt/sources.list <<-'EOB'
+deb http://ftp.jaist.ac.jp/raspbian buster main contrib non-free rpi
+deb-src http://ftp.jaist.ac.jp/raspbian buster main contrib non-free rpi
+EOB
+sudo apt-get --yes update
