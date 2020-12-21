@@ -1,5 +1,7 @@
 # setup-raspberry-pi
 
+[![test](https://github.com/sasaplus1/setup-raspberry-pi/workflows/test/badge.svg)](https://github.com/sasaplus1/setup-raspberry-pi/actions?query=workflow%3Atest)
+
 setup scripts for Raspberry Pi
 
 ## How to setup
