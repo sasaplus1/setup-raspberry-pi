@@ -2,8 +2,7 @@
 
 # apt
 sudo cp /etc/apt/sources.list{,.bak}
-# NOTE: `sudo cat <<-'EOB' > /etc/apt/sources.list` throws permission denied
-sudo tee /etc/apt/sources.list <<-'EOB'
+cat <<'EOB' | sudo tee /etc/apt/sources.list >/dev/null
 deb http://ftp.jaist.ac.jp/raspbian buster main contrib non-free rpi
 deb-src http://ftp.jaist.ac.jp/raspbian buster main contrib non-free rpi
 EOB
@@ -11,6 +10,7 @@ sudo apt-get --yes update
 
 # ntp
 sudo cp /etc/systemd/timesyncd.conf{,.bak}
-sudo printf -- '%s\n' \
-  '[Time]' 'NTP=ntp.nict.jp' 'FallbackNTP=pool.ntp.org' \
-  > /etc/systemd/timesyncd.conf
+cat <<'EOB' | sudo tee /etc/systemd/timesyncd.conf >/dev/null
+NTP=ntp.nict.jp
+FallbackNTP=pool.ntp.org
+EOB
