@@ -60,6 +60,12 @@ Find Raspberry Pi's IP address:
 $ arp -a | grep -i 'b8:27:eb'
 ```
 
+Setup Raspberry Pi:
+
+```console
+$ ssh -t pi@xxx.xxx.xxx.xxx 'curl -L https://git.io/sasaplus1-setup-raspberry-pi | bash'
+```
+
 Try SSH login:
 
 ```console
